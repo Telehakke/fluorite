@@ -1,0 +1,9 @@
+{
+    "id": "fluorite",
+    "name": "Fluorite",
+    "version": "1.0.0",
+    "minAppVersion": "1.5.3",
+    "description": "Display images or note on floating panel.",
+    "author": "Telehakke",
+    "isDesktopOnly": false
+}

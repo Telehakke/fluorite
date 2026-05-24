@@ -1,0 +1,217 @@
+.fluorite[data-scope="floating-panel"][data-part="positioner"] {
+    width: max-content;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="content"] {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--divider-color);
+    position: relative;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="content"]:focus-visible {
+    outline: 4px solid var(--divider-color);
+    outline-offset: -4px;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="content"][hidden] {
+    display: none;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="body"] {
+    height: 100%;
+    background-color: var(--background-primary);
+    overflow: scroll;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: var(--divider-color);
+}
+
+.fluorite[data-scope="floating-panel"][data-part="body"][data-minimized][data-staged] {
+    display: none;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="header"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: var(--background-secondary);
+    padding: 2px 8px;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="drag-trigger"] {
+    display: grid;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="stage-trigger"][hidden] {
+    display: none;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="control"] {
+    display: flex;
+    gap: 4px;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="n"],
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="s"] {
+    height: 10px;
+    max-width: 100%;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="e"],
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="w"] {
+    width: 10px;
+    max-height: 90%;
+}
+
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="ne"],
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="nw"],
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="se"],
+.fluorite[data-scope="floating-panel"][data-part="resize-trigger"][data-axis="sw"] {
+    width: 10px;
+    height: 10px;
+}
+
+.fluorite[data-scope="file-upload"][data-part="root"] {
+    display: flex;
+    gap: 4px;
+}
+
+.fluorite-h-stack {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.fluorite-overflow-scroll {
+    overflow: scroll;
+}
+
+.fluorite-relative {
+    position: relative;
+}
+
+.fluorite-button-container[data-state="visible"] {
+    animation: fluorite-fadeIn 200ms ease-in-out;
+}
+
+.fluorite-button-container[data-state="hidden"] {
+    animation: fluorite-fadeOut 200ms ease-in-out;
+    opacity: 0;
+}
+
+.fluorite-button-container[data-state="none"] {
+    display: none;
+}
+
+.fluorite-pagination {
+    position: absolute;
+    left: 16px;
+    bottom: calc(var(--panel-bar-height) + 16px);
+}
+
+.fluorite-zoom-buttons {
+    position: absolute;
+    right: 16px;
+    bottom: calc(var(--panel-bar-height) + 16px);
+}
+
+.fluorite-close-button {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.fluorite-button-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 40px;
+    outline: 1px solid rgb(255 255 255 / 25%);
+    border-radius: 20px;
+    background-color: rgb(0 0 0 / 25%);
+    padding: 0 4px;
+}
+
+button.fluorite-icon-button {
+    background-color: transparent;
+    box-shadow: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    display: grid;
+    transition-property: background-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 200ms;
+}
+
+button.fluorite-icon-button:hover {
+    background-color: rgb(255 255 255 / 15%);
+}
+
+button.fluorite-icon-button:active {
+    background-color: rgb(255 255 255 / 30%);
+}
+
+button.fluorite-icon-button:focus-visible {
+    outline: 2px solid rgb(255 255 255 / 30%);
+}
+
+.fluorite-indicator {
+    position: absolute;
+    bottom: 0px;
+    width: 30px;
+    border-radius: 2px;
+    height: 4px;
+    background-color: var(--color-accent);
+}
+
+.fluorite-notification {
+    position: absolute;
+    bottom: calc(var(--panel-bar-height) + 16px);
+    left: 50%;
+    translate: -50% 0%;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: black;
+    color: white;
+    font-variant-numeric: tabular-nums;
+}
+
+.fluorite-notification[data-state="visible"] {
+    animation: fluorite-fadeIn 200ms ease-in-out;
+}
+
+.fluorite-notification[data-state="hidden"] {
+    animation: fluorite-fadeOut 200ms ease-in-out;
+    opacity: 0;
+}
+
+@keyframes fluorite-fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fluorite-fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
